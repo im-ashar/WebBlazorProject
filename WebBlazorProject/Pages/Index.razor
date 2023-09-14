@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<MainCaraousal></MainCaraousal>
+<CascadingValue Value="@SalesQuantity">
+    <LatestProducts UserId="IdOfTheLoggedInUser" OnButtonClick="IncreaseCount">
+        <SectionWithProductData>
+            <p>Product Id: @context.Id</p>
+            <p>Product Name: @context.Name</p>
+            <p>Product Price: @context.Price</p>
+        </SectionWithProductData>
+    </LatestProducts>
+</CascadingValue>
+<h5>Button Click Count: @Count</h5>
+
+@code {
+    public string SalesQuantity { get; set; } = "75000 Sales";
+    public int Count { get; set; } = 0;
+
+    private void IncreaseCount()
+    {
+        Count++;
+    }
+}
